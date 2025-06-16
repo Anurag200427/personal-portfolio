@@ -728,30 +728,66 @@
                 
                 .about-container {
                     display: flex;
+                    flex-direction: column;
                     align-items: center;
-                    justify-content: space-between;
-                    gap: 4rem;
+                    gap: 2rem;
                     max-width: 1200px;
                     margin: 0 auto;
-                    padding: 3rem 2rem;
+                    padding: 1.5rem 1rem;
                     position: relative;
                     z-index: 1;
+                    width: 100%;
+                }
+                
+                @media (min-width: 992px) {
+                    .about-container {
+                        flex-direction: row;
+                        align-items: flex-start;
+                        justify-content: space-between;
+                        gap: 4rem;
+                        padding: 3rem 2rem;
+                    }
                 }
                 
                 .about-content {
                     flex: 1;
-                    max-width: 600px;
+                    max-width: 100%;
                     margin: 0 auto;
-                    padding: 2rem 0;
+                    padding: 1.5rem 0;
+                    width: 100%;
+                }
+                
+                @media (min-width: 768px) {
+                    .about-content {
+                        max-width: 600px;
+                        padding: 2rem 0;
+                    }
                 }
 
                 .about-images {
-                    flex: 0 0 45%;
+                    width: 100%;
+                    max-width: 450px;
                     display: flex;
                     flex-direction: column;
-                    gap: 2rem;
+                    gap: 1.5rem;
                     position: relative;
-                    padding: 2rem 0;
+                    padding: 1rem 0;
+                    margin: 0 auto;
+                }
+                
+                @media (min-width: 768px) {
+                    .about-images {
+                        gap: 2rem;
+                        padding: 2rem 0;
+                    }
+                }
+                
+                @media (min-width: 992px) {
+                    .about-images {
+                        flex: 0 0 45%;
+                        max-width: none;
+                        margin: 0;
+                    }
                 }
                 
                 .about-image {
@@ -858,11 +894,19 @@
 
                 .about-content {
                     flex: 1;
-                    opacity: 0;
-                    transform: translateY(20px);
-                    animation: fadeInUp 0.8s ease-out forwards;
-                    animation-delay: 0.3s;
+                    opacity: 1; /* Changed from 0 to 1 for mobile first */
+                    transform: translateY(0); /* Reset transform for mobile first */
                     padding: 1rem 0;
+                    width: 100%;
+                }
+                
+                @media (min-width: 768px) {
+                    .about-content {
+                        opacity: 0;
+                        transform: translateY(20px);
+                        animation: fadeInUp 0.8s ease-out forwards;
+                        animation-delay: 0.3s;
+                    }
                 }
                 
                 .about-heading {
@@ -1435,13 +1479,44 @@
                     }
                 }
                 
-                @media (max-width: 768px) {
+                @media (max-width: 991px) {
                     .about-heading {
                         font-size: 2.2rem;
+                        text-align: center;
                     }
                     
                     .about-subheading {
-                        font-size: 1.3rem;
+                        text-align: center;
+                    }
+                    
+                    .about-text {
+                        text-align: center;
+                    }
+                    
+                    .about-details {
+                        justify-content: center;
+                    }
+                }
+                
+                @media (max-width: 768px) {
+                    .about-heading {
+                        font-size: 2rem;
+                        margin-top: 1.5rem;
+                    }
+                    
+                    .about-subheading {
+                        font-size: 1.1rem;
+                        margin-bottom: 1.5rem;
+                    }
+                    
+                    .about-details {
+                        grid-template-columns: 1fr;
+                        gap: 1rem;
+                    }
+                    
+                    .detail-item {
+                        width: 100%;
+                        margin: 0 auto;
                     }
                     
                     .about-images {

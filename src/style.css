@@ -3,9 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: dark;
+  color: #ffffff;
+  background-color: #121212;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,11 +15,12 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #bb86fc;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 a:hover {
-  color: #535bf2;
+  color: #ffffff;
 }
 
 body {
@@ -37,25 +38,32 @@ h1 {
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid #333;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #1e1e1e;
+  color: #ffffff;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: #333;
+  border-color: #bb86fc;
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px solid #bb86fc;
+  outline-offset: 2px;
 }
 
 .card {
   padding: 2em;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
 }
 
 #app {
@@ -63,17 +71,46 @@ button:focus-visible {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #121212;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Dark theme only */
+:root {
+  --primary: #bb86fc;
+  --primary-variant: #3700b3;
+  --secondary: #03dac6;
+  --background: #121212;
+  --surface: #1e1e1e;
+  --error: #cf6679;
+  --on-primary: #000000;
+  --on-secondary: #000000;
+  --on-background: #ffffff;
+  --on-surface: #ffffff;
+  --on-error: #000000;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--on-background);
+}
+
+.card {
+  background-color: var(--surface);
+  color: var(--on-surface);
+}
+
+button {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  border: 1px solid #333;
+}
+
+button:hover {
+  background-color: #2c2c2c;
+  border-color: var(--primary);
 }
